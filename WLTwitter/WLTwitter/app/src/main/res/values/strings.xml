@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WLTwitter_Part1</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- MENU -->
+    <string name="action_logout">Logout</string>
+
+    <!-- LOGIN -->
+    <string name="loginHint">Your Twitter login</string>
+    <string name="passwordHint">Your Twitter password</string>
+    <string name="login">Sign in</string>
+    <string name="error_no_login">Empty login !</string>
+    <string name="error_no_password">Empty password !</string>
+    <string name="action_settings">Title!</string>
+
+    <!-- TWEET LIST ITEM -->
+    <string name="tweet_list_item_button_text">RT</string>
+
+    <!-- TWEET -->
+    <string name="tweet_reply">reply</string>
+    <string name="tweet_retweet">retweet</string>
+    <string name="tweet_star">star</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ERRORUsernameEmpty">ERROR: Username is Empty</string>
+    <string name="ERRORPasswordEmpty">ERROR : Password is empty</string>
+
+    <!-- EDIT PROFIL LAYOUT -->
+    <string name="my_profil">My Profile</string>
+    <string name="edit_profil">Edit profile</string>
+    <string name="age">age:32</string>
+    <string name="name">michel moustache</string>
+    <string name="todo">profile picture</string>
+    <string name="city_of_birth_arras">City of birth : Arras</string>
+    <string name="status_first_android_training_today">Status : First Android training today ! </string>
+
+
+</resources>

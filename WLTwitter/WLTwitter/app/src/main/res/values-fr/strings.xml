@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WLTwitter_Part1</string>
+    <string name="ERRORPasswordEmpty">ERREUR: Mots de passe vide</string>
+    <string name="ERRORUsernameEmpty">ERREUR: Nom d utilisateur vide</string>
+    <string name="action_logout">Deconeecter</string>
+    <string name="action_settings">Titre</string>
+    <string name="age">age 32</string>
+    <string name="city_of_birth_arras">ville de naissance: Arras</string>
+    <string name="edit_profil">Editer profil</string>
+    <string name="error_no_login">Login vide</string>
+    <string name="error_no_password">Mot de passe vide</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_world">Bonjour le monde</string>
+    <string name="login">s identifier</string>
+    <string name="my_profil">Mon Profil</string>
+    <string name="name">michel moustache</string>
+    <string name="loginHint">votre login Twitter</string>
+    <string name="tweet_list_item_button_text">RT</string>
+    <string name="tweet_reply">repondre</string>
+    <string name="tweet_retweet">retweet</string>
+    <string name="tweet_star">etoile</string>
+    <string name="todo">photo de profile</string>
+    <string name="status_first_android_training_today">statue: premier cour aplication</string>
+    <string name="passwordHint">votre mot passe twitter</string>
+</resources>
