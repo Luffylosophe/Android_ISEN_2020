@@ -23,4 +23,5 @@
     <string name="todo">photo de profile</string>
     <string name="status_first_android_training_today">statue: premier cour aplication</string>
     <string name="passwordHint">votre mot passe twitter</string>
+    <string name="remember_me">se souvenir de moi</string>
 </resources>

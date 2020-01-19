@@ -14,6 +14,7 @@
     <string name="error_no_login">Empty login !</string>
     <string name="error_no_password">Empty password !</string>
     <string name="action_settings">Title!</string>
+    <string name="remember_me">remember me</string>
 
     <!-- TWEET LIST ITEM -->
     <string name="tweet_list_item_button_text">RT</string>
@@ -36,6 +37,8 @@
     <string name="todo">profile picture</string>
     <string name="city_of_birth_arras">City of birth : Arras</string>
     <string name="status_first_android_training_today">Status : First Android training today ! </string>
+    <string name="setting">setting</string>
+    <string name="help">help</string>
 
 
 </resources>

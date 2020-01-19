@@ -1,19 +1,26 @@
 package worldline.ssm.rd.ux.wltwitter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import worldline.ssm.rd.ux.wltwitter.utils.Constants;
 
 public class loginActivity extends AppCompatActivity implements View.OnClickListener {
+    private CheckBox checkbox_meat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +55,29 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
             extras.putString(Constants.Login.EXTRA_LOGIN,userName);
             homeIntent.putExtras(extras);
+            remeber();
             return homeIntent;
+        }
 
+    public void remeber() {
+        EditText usernameEditText = findViewById(R.id.usernameEditText);
+        EditText passwordEditText = findViewById(R.id.passwordEditText);
+        checkbox_meat=findViewById(R.id.checkbox_meat);
+        if (checkbox_meat.isChecked()){
+            usernameEditText.setText(usernameEditText.getText());
+        }
+        else{
+            return;
         }
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.optionmenu,menu);
+        return super.onCreateOptionsMenu((menu));
+    }
+
+}
 
