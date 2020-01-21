@@ -37,8 +37,11 @@
     <string name="todo">profile picture</string>
     <string name="city_of_birth_arras">City of birth : Arras</string>
     <string name="status_first_android_training_today">Status : First Android training today ! </string>
-    <string name="setting">setting</string>
-    <string name="help">help</string>
 
+
+    <!-- PREFERENCES   -->
+    <string name="checkbox">SharedPreferences</string>
+    <string name="username">SharedPreferences</string>
+    <string name="password">SharedPreferences</string>
 
 </resources>

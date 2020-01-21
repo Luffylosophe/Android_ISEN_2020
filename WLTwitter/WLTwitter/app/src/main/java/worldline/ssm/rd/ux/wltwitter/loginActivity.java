@@ -22,25 +22,58 @@ import worldline.ssm.rd.ux.wltwitter.utils.Constants;
 public class loginActivity extends AppCompatActivity implements View.OnClickListener {
     private CheckBox checkbox_meat;
 
+    private SharedPreferences myPreferences ;
+    private SharedPreferences.Editor editor;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        checkbox_meat=(CheckBox)findViewById(R.id.checkbox_meat);
 
         Button loginButton=findViewById(R.id.button);
         loginButton.setOnClickListener(this);
+
+        myPreferences = getPreferences(MODE_PRIVATE);
+        editor=myPreferences.edit();
+
+        checkPreferences();
     }
 
     @SuppressLint("ShowToast")
     @Override
     public void onClick(View v) {
+
         EditText usernameEditText = findViewById(R.id.usernameEditText);
         EditText passwordEditText = findViewById(R.id.passwordEditText);
+        if(checkbox_meat.isChecked()){
+            editor.putString((getString(R.string.checkbox)),"True");
+            editor.commit();
+
+            String username=usernameEditText.getText().toString();
+            editor.putString((getString(R.string.username)),username);
+            editor.commit();
+
+            String password=passwordEditText.getText().toString();
+            editor.putString((getString(R.string.password)),username);
+            editor.commit();
+        }
+        else {
+            editor.putString((getString(R.string.checkbox)),"remember me");
+            editor.commit();
+
+            editor.putString((getString(R.string.username)),"");
+            editor.commit();
+
+            editor.putString((getString(R.string.password)),"");
+            editor.commit();
+
+        }
 
         if (TextUtils.isEmpty(usernameEditText.getText())) {
             Toast.makeText(getApplicationContext(), getText(R.string.ERRORUsernameEmpty), Toast.LENGTH_LONG).show();
             return;
-
         }
 
         if (TextUtils.isEmpty(passwordEditText.getText())) {
@@ -48,36 +81,37 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
     startActivity(getHoIntent(usernameEditText.getText().toString()));
+
     }
-        private Intent getHoIntent(String userName){
+
+    private Intent getHoIntent(String userName){
             final Intent homeIntent = new Intent(this, WLTwitterActivity.class);
             final Bundle extras = new Bundle();
 
             extras.putString(Constants.Login.EXTRA_LOGIN,userName);
             homeIntent.putExtras(extras);
-            remeber();
             return homeIntent;
-        }
+    }
 
-    public void remeber() {
+    private void checkPreferences(){
         EditText usernameEditText = findViewById(R.id.usernameEditText);
         EditText passwordEditText = findViewById(R.id.passwordEditText);
-        checkbox_meat=findViewById(R.id.checkbox_meat);
-        if (checkbox_meat.isChecked()){
-            usernameEditText.setText(usernameEditText.getText());
+
+        String checkbox=myPreferences.getString(getString(R.string.checkbox),"remember me");
+        String username=myPreferences.getString(getString(R.string.username),"");
+        String password=myPreferences.getString(getString(R.string.password),"");
+
+        usernameEditText.setText(username);
+        passwordEditText.setText(password);
+        if(checkbox.equals("True")){
+            checkbox_meat.setText("True");
         }
         else{
-            return;
+            checkbox_meat.setText("remember me");
         }
-
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.optionmenu,menu);
-        return super.onCreateOptionsMenu((menu));
-    }
+
 
 }
 
