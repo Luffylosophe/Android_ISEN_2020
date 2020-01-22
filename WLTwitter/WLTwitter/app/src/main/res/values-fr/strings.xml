@@ -4,7 +4,7 @@
     <string name="ERRORPasswordEmpty">ERREUR: Mots de passe vide</string>
     <string name="ERRORUsernameEmpty">ERREUR: Nom d utilisateur vide</string>
     <string name="action_logout">Deconeecter</string>
-    <string name="action_settings">Titre</string>
+    <string name="action_settings">Deconeecter</string>
     <string name="age">age 32</string>
     <string name="city_of_birth_arras">ville de naissance: Arras</string>
     <string name="edit_profil">Editer profil</string>
