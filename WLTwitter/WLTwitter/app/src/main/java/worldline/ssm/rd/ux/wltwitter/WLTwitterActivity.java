@@ -1,25 +1,28 @@
 package worldline.ssm.rd.ux.wltwitter;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import worldline.ssm.rd.ux.wltwitter.utils.Constants;
-import worldline.ssm.rd.ux.wltwitter.utils.PreferenceUtils;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import worldline.ssm.rd.ux.wltwitter.pojo.Tweet;
+import worldline.ssm.rd.ux.wltwitter.ui.fragments.TweetsFragment;
+import worldline.ssm.rd.ux.wltwitter.utils.Constants;
 
 public class WLTwitterActivity extends AppCompatActivity {
     private SharedPreferences myPreferences ;
     private SharedPreferences.Editor editor;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_tweets);
 
         myPreferences = getPreferences(MODE_PRIVATE);
         editor=myPreferences.edit();
@@ -31,7 +34,9 @@ public class WLTwitterActivity extends AppCompatActivity {
                 Username = fromIntent.getExtras().getString(Constants.Login.EXTRA_LOGIN);
             }
                 getSupportActionBar().setTitle(Username);
+
         }
+        getSupportFragmentManager().beginTransaction().add(R.id.container,new TweetsFragment()).commit();
     }
 
     @Override
@@ -71,5 +76,13 @@ public class WLTwitterActivity extends AppCompatActivity {
         extras.putString(Constants.Login.EXTRA_LOGIN,userName);
         homeIntent.putExtras(extras);
         return homeIntent;
+    }
+
+    public void onRetweet(Tweet tweet){
+
+    }
+
+    public void onViewTweet(Tweet tweet){
+        Toast.makeText(this,tweet.text,Toast.LENGTH_LONG).show();
     }
 }
