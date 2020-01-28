@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\rtwam\\Desktop\\Cours_ISEN\\M1\\Android\\Android_ISEN_2020\\Android_ISEN_2020\\WLTwitter\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rFR\\values-fr-rFR.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\rtwam\\Desktop\\Cours_ISEN\\M1\\Android\\Android_ISEN_2020\\Android_ISEN_2020\\WLTwitter\\app\\src\\main\\res\\values-fr-rFR\\strings.xml",
+                    "from": {
+                        "startLines": "3,2,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "108,57,148,224,280,331,382,498",
+                        "endColumns": "38,49,74,54,49,49,114,48",
+                        "endOffsets": "142,102,218,274,325,376,492,542"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,94,144,219,274,324,374,489",
+                        "endColumns": "38,49,74,54,49,49,114,48",
+                        "endOffsets": "89,139,214,269,319,369,484,533"
+                    }
+                }
+            ]
+        }
+    ]
+}

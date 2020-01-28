@@ -1,39 +1,44 @@
 package worldline.ssm.rd.ux.wltwitter;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import worldline.ssm.rd.ux.wltwitter.asyncr.RetrieveTweetsAsyncTask;
+import worldline.ssm.rd.ux.wltwitter.interfaces.TweetListener;
+import worldline.ssm.rd.ux.wltwitter.pojo.Tweet;
+import worldline.ssm.rd.ux.wltwitter.ui.fragments.TweetsFragment;
+import worldline.ssm.rd.ux.wltwitter.utils.Constants;
+import worldline.ssm.rd.ux.wltwitter.utils.PreferenceUtils;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+public class WLTwitterActivity extends AppCompatActivity implements TweetListener {
 
-import worldline.ssm.rd.ux.wltwitter.pojo.Tweet;
-import worldline.ssm.rd.ux.wltwitter.ui.fragments.TweetsFragment;
-import worldline.ssm.rd.ux.wltwitter.utils.Constants;
 
-public class WLTwitterActivity extends AppCompatActivity {
-    private SharedPreferences myPreferences ;
-    private SharedPreferences.Editor editor;
+    /*@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }*/
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_tweets);
+        setContentView(R.layout.activity_wltwitter);
 
-        myPreferences = getPreferences(MODE_PRIVATE);
-        editor=myPreferences.edit();
+        final Intent intent = getIntent();
+        if(null!= intent){
+            final Bundle extras = intent.getExtras();
+            if(null!= extras )
+            {
+                final String  login = extras.getString(Constants.Login.EXTRA_LOGIN);
+                getSupportActionBar().setSubtitle(login);
 
-        Intent fromIntent = getIntent();
-        String Username="";
-        if (fromIntent != null) {
-            if(fromIntent.getExtras()!=null) {
-                Username = fromIntent.getExtras().getString(Constants.Login.EXTRA_LOGIN);
             }
-                getSupportActionBar().setTitle(Username);
 
         }
         getSupportFragmentManager().beginTransaction().add(R.id.container,new TweetsFragment()).commit();
@@ -42,47 +47,34 @@ public class WLTwitterActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.wltwitter, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.action_settings:
-                logout();
-                break;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //action de logout
+        if (id == R.id.actionLogout) {
+            PreferenceUtils.setLogin(null);
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void logout(){
-        String username=myPreferences.getString(getString(R.string.username),"");
-        String password=myPreferences.getString(getString(R.string.password),"");
-        editor.putString((getString(R.string.username)),"");
-        editor.commit();
-        editor.putString((getString(R.string.password)),"");
-        editor.commit();
-        finish();
-        setContentView(R.layout.activity_login);
-        return;
-    }
-
-    private Intent getHoIntent(String userName){
-        final Intent homeIntent = new Intent(this, WLTwitterActivity.class);
-        final Bundle extras = new Bundle();
-
-        extras.putString(Constants.Login.EXTRA_LOGIN,userName);
-        homeIntent.putExtras(extras);
-        return homeIntent;
-    }
-
-    public void onRetweet(Tweet tweet){
+    @Override
+    public void onRetweet(Tweet tweet) {
 
     }
 
-    public void onViewTweet(Tweet tweet){
-        Toast.makeText(this,tweet.text,Toast.LENGTH_LONG).show();
+    @Override
+    public void onViewTweet(Tweet tweet) {
+        Toast.makeText(this, tweet.text, Toast.LENGTH_LONG).show();
     }
 }

@@ -38,10 +38,10 @@ public class TweetsFragment extends Fragment implements TweetChangeListener {
     @Override
     public void onStart() {
         super.onStart();
-        final String Username = PreferenceUtils.getLogin();
-        if(!TextUtils.isEmpty(Username)){
+        final String login = PreferenceUtils.getLogin();
+        if(!TextUtils.isEmpty(login)){
             mTweetsAsyncTask =new RetrieveTweetsAsyncTask(this);
-            mTweetsAsyncTask.execute(Username);
+            mTweetsAsyncTask.execute(login);
         }
     }
 
@@ -54,12 +54,13 @@ public class TweetsFragment extends Fragment implements TweetChangeListener {
         mListView=(ListView) rootView.findViewById(R.id.tweetsListView);
         mListView.setAdapter(new ArrayAdapter<Tweet>(getActivity(),android.R.layout.simple_list_item_1,new ArrayList<Tweet>()));
 
-        return mListView;
+        return rootView;
     }
 
     public void onTweetRetrieved(List<Tweet> tweets){
-        if(null!=tweets){
-            for(Tweet t:tweets){
+        mListView.setAdapter(new ArrayAdapter<Tweet>(getActivity(),android.R.layout.simple_list_item_1,tweets));
+        if(null != tweets){
+            for(Tweet t : tweets){
                 Log.d(WLTwitterApplication.class.getName(),t.text);
             }
         }

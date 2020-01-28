@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="age">age:32</string>
+    <string name="app_name">application1</string>
+    <string name="city_of_birth_arras">ville de naissance : Arras</string>
+    <string name="edit_profil">editer profile</string>
+    <string name="my_profil">Mon Profile</string>
+    <string name="name">michel moustache</string>
+    <string name="status_first_android_training_today">Statut : premier entrainement Android aujourd\'hui</string>
+    <string name="todo">photo de profil</string>
+</resources>
