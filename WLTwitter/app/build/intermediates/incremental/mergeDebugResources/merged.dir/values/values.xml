@@ -143,6 +143,7 @@
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
+    <color name="blue_twitter">#FF44BBE3</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -273,6 +274,8 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="compat_button_inset_horizontal_material">4dp</dimen>
     <dimen name="compat_button_inset_vertical_material">6dp</dimen>
     <dimen name="compat_button_padding_horizontal_material">8dp</dimen>
@@ -289,6 +292,12 @@
     <item format="float" name="hint_alpha_material_light" type="dimen">0.38</item>
     <item format="float" name="hint_pressed_alpha_material_dark" type="dimen">0.70</item>
     <item format="float" name="hint_pressed_alpha_material_light" type="dimen">0.54</item>
+    <dimen name="login_center_panel_content_top_margin">10dp</dimen>
+    <dimen name="login_center_panel_left_margin">30dp</dimen>
+    <dimen name="login_center_panel_padding">10dp</dimen>
+    <dimen name="login_center_panel_right_margin">30dp</dimen>
+    <dimen name="login_center_panel_top_margin">100dp</dimen>
+    <dimen name="login_root_padding">5dp</dimen>
     <dimen name="notification_action_icon_size">32dp</dimen>
     <dimen name="notification_action_text_size">13sp</dimen>
     <dimen name="notification_big_circle_margin">12dp</dimen>
@@ -304,6 +313,7 @@
     <dimen name="notification_subtext_size">13sp</dimen>
     <dimen name="notification_top_pad">10dp</dimen>
     <dimen name="notification_top_pad_large_text">5dp</dimen>
+    <dimen name="round_corner_size">6dp</dimen>
     <dimen name="tooltip_corner_radius">2dp</dimen>
     <dimen name="tooltip_horizontal_padding">16dp</dimen>
     <dimen name="tooltip_margin">8dp</dimen>
@@ -330,6 +340,7 @@
     <item name="text" type="id"/>
     <item name="text2" type="id"/>
     <item name="title" type="id"/>
+    <item name="tweetsListView" type="id"/>
     <item name="up" type="id"/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
@@ -375,16 +386,17 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="age">age:32</string>
-    <string name="app_name">application1</string>
-    <string name="city_of_birth_arras">City of birth : Arras</string>
-    <string name="edit_profil">Edit profile</string>
-    <string name="my_profil">My Profile</string>
-    <string name="name">michel moustache</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_settings">Title!</string>
+    <string name="app_name">WLTwitter_Part1</string>
+    <string name="error_no_login">Empty login !</string>
+    <string name="error_no_password">Empty password !</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="login">Sign in</string>
+    <string name="loginHint">Your Twitter login</string>
+    <string name="passwordHint">Your Twitter password</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="status_first_android_training_today">Status : First Android training today ! </string>
-    <string name="todo">profile picture</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
