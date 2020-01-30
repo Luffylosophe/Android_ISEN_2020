@@ -1,8 +1,8 @@
 package worldline.ssm.rd.ux.wltwitter;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import worldline.ssm.rd.ux.wltwitter.asyncr.RetrieveTweetsAsyncTask;
+import androidx.fragment.app.FragmentActivity;
+import worldline.ssm.rd.ux.wltwitter.async.RetrieveTweetsAsyncTask;
 import worldline.ssm.rd.ux.wltwitter.interfaces.TweetListener;
 import worldline.ssm.rd.ux.wltwitter.pojo.Tweet;
 import worldline.ssm.rd.ux.wltwitter.ui.fragments.TweetsFragment;
@@ -17,12 +17,6 @@ import android.widget.Toast;
 
 public class WLTwitterActivity extends AppCompatActivity implements TweetListener {
 
-
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }*/
 
 
     @Override
@@ -39,9 +33,12 @@ public class WLTwitterActivity extends AppCompatActivity implements TweetListene
                 getSupportActionBar().setSubtitle(login);
 
             }
-
         }
-        getSupportFragmentManager().beginTransaction().add(R.id.container,new TweetsFragment()).commit();
+        if(savedInstanceState==null)
+        {
+            getSupportFragmentManager().beginTransaction().add(R.id.container,new TweetsFragment()).commit();
+        }
+
     }
 
     @Override
@@ -70,11 +67,11 @@ public class WLTwitterActivity extends AppCompatActivity implements TweetListene
 
     @Override
     public void onRetweet(Tweet tweet) {
-
+        Toast.makeText(this,tweet.text,Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onViewTweet(Tweet tweet) {
-        Toast.makeText(this, tweet.text, Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"OnViewTweet"+tweet.text,Toast.LENGTH_SHORT).show();
     }
 }
