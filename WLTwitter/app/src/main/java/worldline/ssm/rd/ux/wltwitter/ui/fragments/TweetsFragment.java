@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import worldline.ssm.rd.ux.wltwitter.R;
+import worldline.ssm.rd.ux.wltwitter.adapters.TweetsAdapter;
 import worldline.ssm.rd.ux.wltwitter.async.RetrieveTweetsAsyncTask;
 import worldline.ssm.rd.ux.wltwitter.interfaces.TweetChangeListener;
 import worldline.ssm.rd.ux.wltwitter.interfaces.TweetListener;
@@ -67,12 +68,9 @@ public class TweetsFragment extends Fragment implements TweetChangeListener, Ada
 
     @Override
     public void onTweetRetrieved(List<Tweet> tweets) {
-        final ArrayAdapter<Tweet> adapter = new ArrayAdapter<Tweet>(getActivity(),
-                android.R.layout.simple_list_item_1, tweets);
+
+        final TweetsAdapter adapter = new TweetsAdapter(tweets);
         mListView.setAdapter(adapter);
-        for (Tweet tweet : tweets)
-            //System.out.println( "[postExecute]" +tweet.text);
-            Log.d("onTweetRetrieved",tweet.text);
         mRetrieveTweetsAsyncTask= null;
     }
 
