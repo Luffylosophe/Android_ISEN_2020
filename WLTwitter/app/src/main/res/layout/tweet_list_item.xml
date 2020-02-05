@@ -1,67 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="540dp"
+    android:background="@drawable/white_round_corners_background"
+    android:padding="5dp">
 
-    <ImageView
-        android:id="@+id/tweetListItemImageView"
-        android:layout_width="@dimen/tweet_list_item_image_size"
-        android:layout_height="@dimen/tweet_list_item_image_size"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="@dimen/tweet_list_item_margin_between_views"
-        android:layout_marginRight="@dimen/tweet_list_item_margin_between_views"
-        android:background="#FFFFFFFF"
-        android:contentDescription="@string/app_name" />
+    <RelativeLayout
+        android:id="@+id/picLayout"
+        android:layout_width="100dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/blue_round_corners_background">
 
-    <TextView
-        android:id="@+id/tweetListItemAliasTextView"
-        android:layout_width="47dp"
-        android:layout_height="55dp"
-        android:layout_alignTop="@+id/tweetListItemImageView"
-        android:layout_alignParentRight="true"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tweetListItemButton" />
+        <ImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="93dp"
+            android:layout_height="76dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/alien_icon"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tweetListItemNameTextView"
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/userLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tweetListItemImageView"
-        android:layout_toLeftOf="@+id/tweetListItemAliasTextView"
-        android:layout_toRightOf="@+id/tweetListItemImageView"
-        android:textColor="@android:color/black"
-        android:textStyle="bold" />
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/picLayout">
 
-    <Button
-        android:id="@+id/tweetListItemButton"
-        android:layout_width="0dp"
-        android:layout_height="120dp"
-        android:layout_below="@+id/tweetListItemImageView"
-        android:layout_alignLeft="@+id/tweetListItemImageView"
-        android:layout_alignRight="@+id/tweetListItemImageView"
-        android:background="@drawable/white_blue_round_corners_selector"
-        android:text="@string/tweet_list_item_button_text"
-        android:textColor="@drawable/blue_white_text_selector"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tweetListItemImageView" />
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="125dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/blue_round_corners_background"
+            android:gravity="center"
+            android:text="User Name"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/tweetListItemTweetTextView"
+        <TextView
+            android:id="@+id/alias"
+            android:layout_width="125dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/userName"
+            android:background="@drawable/blue_round_corners_background"
+            android:gravity="center"
+            android:text="Alias"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/contentLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tweetListItemNameTextView"
-        android:layout_alignLeft="@+id/tweetListItemNameTextView"
-        android:layout_alignRight="@+id/tweetListItemAliasTextView"
-        android:singleLine="false"
-        android:textColor="@android:color/white"
-        android:textColorLink="@color/orange_twitter"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tweetListItemImageView"
-        tools:layout_editor_absoluteY="31dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="110dp"
+        android:layout_below="@id/userLayout"
+        android:layout_toRightOf="@id/picLayout">
+
+        <TextView
+            android:id="@+id/tweetContent"
+            android:layout_width="293dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/blue_round_corners_background"
+            android:text="Content" />
+    </RelativeLayout>
+
+</RelativeLayout>
