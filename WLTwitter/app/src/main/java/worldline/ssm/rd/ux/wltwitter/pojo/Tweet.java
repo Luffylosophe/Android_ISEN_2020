@@ -1,21 +1,27 @@
 package worldline.ssm.rd.ux.wltwitter.pojo;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import com.google.gson.annotations.SerializedName;
 
+@Entity
 public class Tweet {
+	@PrimaryKey() @NonNull
+	private  String id;
+
+	@ColumnInfo()
+	private String text;
 
 	@SerializedName("created_at")
 	public String dateCreated;
-
-	@SerializedName("id")
-	public String id;
-
-	@SerializedName("text")
-	public String text;
 
 	@SerializedName("in_reply_to_status_id")
 	public String inReplyToStatusId;
@@ -28,6 +34,10 @@ public class Tweet {
 
 	@SerializedName("user")
 	public TwitterUser user;
+
+
+	public Tweet() {
+	}
 
 	@Override
 	public String toString() {
@@ -43,6 +53,23 @@ public class Tweet {
 		} catch (Exception e) {
 			return 0;
 		}
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String id) {
+		this.text = id;
 	}
 	
 }

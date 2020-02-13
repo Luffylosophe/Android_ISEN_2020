@@ -3,6 +3,7 @@
     package="worldline.ssm.rd.ux.wltwitter">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application android:name=".WLTwitterApplication"
         android:allowBackup="true"

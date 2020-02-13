@@ -2,6 +2,8 @@ package worldline.ssm.rd.ux.wltwitter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
+import androidx.room.Room;
+
 import worldline.ssm.rd.ux.wltwitter.async.RetrieveTweetsAsyncTask;
 import worldline.ssm.rd.ux.wltwitter.interfaces.TweetListener;
 import worldline.ssm.rd.ux.wltwitter.pojo.Tweet;
@@ -11,9 +13,14 @@ import worldline.ssm.rd.ux.wltwitter.utils.PreferenceUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class WLTwitterActivity extends AppCompatActivity implements TweetListener {
 
@@ -39,7 +46,34 @@ public class WLTwitterActivity extends AppCompatActivity implements TweetListene
             getSupportFragmentManager().beginTransaction().add(R.id.container,new TweetsFragment()).commit();
         }
 
+        final TweetDatabase db = Room.databaseBuilder(this,
+                TweetDatabase.class, "ma_bdd.db").build();
+        ExecutorService executor= Executors.newSingleThreadExecutor();
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                Tweet tweet=new Tweet();
+                tweet.setId("564");
+                tweet.setText(" 1,2,3,viva Os");
+
+                db.tweetDao().insert(tweet);
+
+            }
+        });
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                List<Tweet> tweets = db.tweetDao().getAll();
+                for(Tweet var:tweets){
+                    Log.d("BDD",var.getText());
+
+                }
+            }
+        });
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,11 +101,11 @@ public class WLTwitterActivity extends AppCompatActivity implements TweetListene
 
     @Override
     public void onRetweet(Tweet tweet) {
-        Toast.makeText(this,tweet.text,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,tweet.getText(),Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onViewTweet(Tweet tweet) {
-        Toast.makeText(this,"OnViewTweet"+tweet.text,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"OnViewTweet"+tweet.getText(),Toast.LENGTH_SHORT).show();
     }
 }
